@@ -6,7 +6,7 @@
         android:title="shopping cart" />
     <item
         android:id="@+id/secondFragment"
-        android:icon="@drawable/abc_vector_test"
-        android:title="second" />
+        android:icon="@android:drawable/stat_sys_data_bluetooth"
+        android:title="subscribers" />
 
 </menu>

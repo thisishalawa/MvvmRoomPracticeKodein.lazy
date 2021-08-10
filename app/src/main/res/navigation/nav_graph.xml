@@ -12,6 +12,6 @@
         tools:layout="@layout/fragment_first" />
     <fragment
         android:id="@+id/secondFragment"
-        android:name="master.mvvm.room_practice.subscribers.SecondFragment"
+        android:name="master.mvvm.room_practice.subscribers.ui.fragment.SecondFragment"
         android:label="SecondFragment" />
 </navigation>

@@ -1,11 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/matchMatch_"
-    android:padding="@dimen/_20sdp"
-    tools:context=".shopping_cart.ui.fragments.FirstFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        style="@style/mainText_"
-        android:text="Second Fragment!" />
-</RelativeLayout>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="master.mvvm.room_practice.subscribers.ui.SubscriberViewModel" />
+    </data>
+
+    <RelativeLayout
+        style="@style/matchMatch_"
+        android:layout_marginBottom="@dimen/_40sdp"
+        tools:context=".shopping_cart.ui.fragments.FirstFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottomLayout"
+            android:layout_centerVertical="true"
+            android:layout_margin="20dp" />
+
+        <LinearLayout
+            android:id="@+id/bottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"
+            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:orientation="vertical"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp">
+
+            <EditText
+                android:id="@+id/name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Subscriber's name"
+                android:inputType="textPersonName"
+                android:text="@={viewModel.inputName}" />
+
+            <EditText
+                android:id="@+id/email_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Subscriber's email"
+                android:inputType="textPersonName"
+                android:text="@={viewModel.inputEmail}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/save_or_update_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:onClick="@{()->viewModel.saveOrUpdate()}"
+                    android:text="@={viewModel.saveOrUpdateButtonText}"
+                    android:textColor="@color/white"
+                    tools:ignore="ButtonStyle" />
+
+                <Button
+                    android:id="@+id/clear_all_or_delete_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:onClick="@{()->viewModel.clearAllOrDelete()}"
+                    android:text="@={viewModel.clearAllOrDeleteButtonText}"
+                    android:textColor="@color/white"
+                    tools:ignore="ButtonStyle" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

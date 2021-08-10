@@ -4,6 +4,8 @@ import android.app.Application
 import master.mvvm.room_practice.shopping_cart.data.db.ShoppingDatabase
 import master.mvvm.room_practice.shopping_cart.repository.ShoppingRepository
 import master.mvvm.room_practice.shopping_cart.ui.ShoppingViewModelFactory
+import master.mvvm.room_practice.subscribers.SubscriberViewModelFactory
+import master.mvvm.room_practice.subscribers.repository.SubscriberRepository
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -23,10 +25,14 @@ class MyApplication : Application(), KodeinAware {
     override val kodein: Kodein = Kodein.lazy {
         import(androidXModule(this@MyApplication))
 
+        // cart
         bind() from singleton { ShoppingDatabase(instance()) }
         bind() from singleton { ShoppingRepository(instance()) }
         bind() from provider { ShoppingViewModelFactory(instance()) }
 
 
+        // subscribe
+        bind() from singleton { SubscriberRepository(instance()) }
+        bind() from singleton { SubscriberViewModelFactory(instance()) }
     }
 }
