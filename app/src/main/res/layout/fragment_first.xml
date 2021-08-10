@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/matchMatch_"
+    android:layout_marginBottom="@dimen/_35sdp"
+    android:padding="@dimen/_10sdp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvShoppingItems"
+        style="@style/matchMatch_"
+        android:layout_centerInParent="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        style="@style/wrapWrap_"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:src="@android:drawable/ic_input_add"
+        app:tint="@null"
+        tools:ignore="ContentDescription" />
+</RelativeLayout>
